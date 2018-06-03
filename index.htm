@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="src/bootstrap.min.css">
   <!-- Optional theme -->
   <link rel="stylesheet" href="src/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/css.css">
 </head>
 
 <body>
@@ -21,20 +22,6 @@
     </div>
   </div>
 
-  <script>
-    //set css/js links with random string for caching issues prevention
-    var csshref = 'css/css.css';
-    var jsMain = 'js/main.js';
-    var jsRequester = 'js/Requester.js';
-    var date = new Date().getTime();
-    $('<link>', {
-      rel: "stylesheet",
-      type: "text/css",
-      href: csshref + "?" + date,
-    }).appendTo($('head'));
-    //$.getScript(jsRequester);
-    //$.getScript(jsMain);
-  </script>
   <script src="js/Requester.js"></script>
   <script src="js/main.js"></script>
 
