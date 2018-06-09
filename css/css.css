@@ -1,105 +1,168 @@
-/****/
+/**header css**/
 
-@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
-html,
-body {
-    height: 100%;
-}
-
-body {
-    margin: 0;
-}
-
-.main_container {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    margin: -0.1rem;
-    margin-left: 4rem;
-    margin-right: 4rem;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.main_div {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 2rem;
-    margin-top: 1rem;
-    margin-right: 2rem;
-    font-family: 'Indie Flower', cursive;
-    font-size: 18px;
-    background-color: #fbfbfb;
-    border-radius: 12px;
-    height: auto;
-    box-shadow: 1px 1px 10px #898989;
-    color: #2c4d80;
-    border: 1px solid #e0e0e0;
-}
-
-#title {
-    width: 100%;
-    text-align: center;
-    margin: 0.8rem;
-    padding: 6px;
-    font-style: italic;
-    font-size: 24px;
-    border-bottom: 1px dashed #8c8b8b;
-}
-
-#label {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-}
-
-#label #button {
-    border: 1px solid #8793a5;
-    border-radius: 5px;
-    padding: 7px;
-    background-color: #2c4d80;
-    color: white;
-    text-align: center;
-}
-
-#label .input {
-    border: 1px solid #e0e0e0;
-    border-radius: 5px;
-    padding: 6px;
-    margin: 5px;
-    padding-left: 10px;
+@import url('https://fonts.googleapis.com/css?family=Eater');
+.header {
+    overflow: hidden;
     background-color: #f1f1f1;
-    color: #2c4d80;
-    text-align: center;
+    padding: 5px;
+    height: 55px;
 }
 
-#result {
-    /* display: none; */
-    width: 50%;
-    border: 1px solid #8793a5;
-    border-radius: 5px;
-    padding: 7px;
-    font-size: 24px;
-    margin: 10px 25%;
-    /* background-color: #2c4d80; */
-    color: #2c4d80;
+.header span {
+    float: left;
+    color: black;
     text-align: center;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
+    padding: 6px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+}
+
+.header span.logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.header-right {
+    float: right;
+}
+
+.logo {
+    font-family: 'Eater', cursive;
+}
+
+@media screen and (max-width: 500px) {
+    .header {
+        overflow: hidden;
+        background-color: #f1f1f1;
+        padding: 10px;
+        height: auto;
+    }
+    .header span {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+    .header-right {
+        float: none;
+    }
+    .container {
+        margin: 0 !important;
+        display: flex;
+        /* justify-content: space-between; */
+    }
+    .search-container {
+        margin: 0 !important;
+        position: absolute;
+        right: 15px;
+    }
+}
+
+
+/**header end**/
+
+
+/**search bar**/
+
+.container {
+    display: block;
+    max-width: 200px;
+    margin: auto;
+    height: 50px;
+    outline: none;
+}
+
+.search-container {
+    overflow: hidden;
+    float: right;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #6A5D4F;
+    transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    -webkit-transition: all 0.35s;
+}
+
+.search-container:hover,
+.search-container:focus {
+    width: 400px;
+    height: 35px;
+    border-radius: 5px 1em 1em 5px;
+    outline: none;
+}
+
+.search-container:hover input,
+.search-container:focus input {
+    display: inline-block;
+    width: 350px;
+    padding: 5px;
+}
+
+input {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    float: left;
+    width: 0em;
+    height: 25px;
+    margin: 4px;
+    margin-right: -4.5em;
+    background: #fff;
+    color: #6A5D4F;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 5px;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2) inset;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+    transition: all 0.25s;
+    -moz-transition: all 0.25s;
+    -webkit-transition: all 0.25s;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 -1px 1px rgba(255, 255, 255, 0.25), 0 1px 5px rgba(0, 0, 0, 0.15);
+}
+
+.button {
+    float: right;
+    width: 25px;
+    height: 25px;
+    margin: 5px;
+    background: #6A5D4F;
+    text-align: center;
+    font-size: 15px;
+    line-height: 15px;
+    padding: 5px;
+    color: #FDF6E3;
+    border-radius: 50%;
+    box-shadow: 0 -1px 1px rgba(255, 255, 255, 0.25), 0 1px 1px rgba(0, 0, 0, 0.25);
+    text-shadow: 0 -2px 1px rgba(0, 0, 0, 0.3);
+}
+
+.button:active {
+    border: 0 !important;
+    text-shadow: 0 0 0;
+}
+
+
+/*search bar end*/
+
+
+/*container*/
+
+.main-div {
     display: flex;
-    visibility: hidden;
-    align-items: center;
-    justify-content: center;
+    height: calc(100vh - 55px);
+    width: 100%;
+}
+
+#CEI {
+    display: flex;
+    /* height: calc(100vh - 55px); */
+    width: 100%;
 }
