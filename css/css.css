@@ -57,6 +57,14 @@
         position: absolute;
         right: 15px;
     }
+    .search-container:hover,
+    .search-container:focus {
+        width: 70vw !important;
+    }
+    .search-container:hover input,
+    .search-container:focus input {
+        width: 65vw !important;
+    }
 }
 
 
