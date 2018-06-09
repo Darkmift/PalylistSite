@@ -163,6 +163,9 @@ input:focus {
 
 #CEI {
     display: flex;
-    height: calc(100vh - 55px);
     width: 100%;
+}
+
+.carousel-item img {
+    height: calc(100vh - 55px);
 }
