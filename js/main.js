@@ -3,7 +3,7 @@ cl("online");
 
 var request = new Requester(
     'GET',
-    'http://localhost/playerAPI/api/playlist/2/songs'
+    'http://www.avisiteapi.tk/playerAPI/api/'
 );
 cl(request.get());
 
