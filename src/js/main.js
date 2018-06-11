@@ -1,5 +1,5 @@
 var cl = console.log.bind(console);
-cl("online");
+cl("online baby!");
 
 var request = new Requester(
     'GET',
