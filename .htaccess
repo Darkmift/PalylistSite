@@ -1,0 +1,7 @@
+# Deny from all
+
+# RewriteEngine on
+# RewriteCond %{REQUEST_URI} !^/index.htm$
+# RewriteRule .*\.(php|html)$ /index.htm [L,R=302]
+
+Options -Indexes
