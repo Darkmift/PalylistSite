@@ -1,5 +1,9 @@
 /**header css**/
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 @import url('https://fonts.googleapis.com/css?family=Eater');
 .header {
     overflow: hidden;
@@ -47,22 +51,22 @@
     .header-right {
         float: none;
     }
-    .container {
+    .search-container {
         margin: 0 !important;
         display: flex;
         /* justify-content: space-between; */
     }
-    .search-container {
+    .search-div {
         margin: 0 !important;
         position: absolute;
         right: 15px;
     }
-    .search-container:hover,
-    .search-container:focus {
+    .search-div:hover,
+    .search-div:focus {
         width: 70vw !important;
     }
-    .search-container:hover input,
-    .search-container:focus input {
+    .search-div:hover input,
+    .search-div:focus input {
         width: 65vw !important;
     }
 }
@@ -73,7 +77,7 @@
 
 /**search bar**/
 
-.container {
+.search-container {
     display: block;
     max-width: 200px;
     margin: auto;
@@ -81,7 +85,7 @@
     outline: none;
 }
 
-.search-container {
+.search-div {
     overflow: hidden;
     float: right;
     height: 35px;
@@ -93,16 +97,16 @@
     -webkit-transition: all 0.35s;
 }
 
-.search-container:hover,
-.search-container:focus {
+.search-div:hover,
+.search-div:focus {
     width: 400px;
     height: 35px;
     border-radius: 5px 1em 1em 5px;
     outline: none;
 }
 
-.search-container:hover input,
-.search-container:focus input {
+.search-div:hover input,
+.search-div:focus input {
     display: inline-block;
     width: 350px;
     padding: 5px;
@@ -164,17 +168,132 @@ input:focus {
 
 /*container*/
 
-.main-div {
+main {
     display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
     height: calc(100vh - 55px);
-    width: 100%;
+    width: 100vw;
+    flex-wrap: wrap;
+    overflow: scroll;
 }
 
-#CEI {
-    display: flex;
-    width: 100%;
+section {
+    margin: 30px;
+    background-color: rgb(10, 7, 3);
+    border-radius: 10px;
+    padding: 5px;
+    border-radius: 50%;
 }
 
-.carousel-item img {
-    height: calc(100vh - 55px);
+.playlist {
+    height: 39vh;
+    width: 39vh;
+}
+
+.playlist h4 {
+    text-align: center;
+    color: rgb(131, 131, 131);
+}
+
+.playlist img {
+    position: relative;
+    left: 50%;
+    transform: translate( -50%);
+    border-radius: 50%;
+}
+
+.playlist .playlist-play-btn {
+    position: relative;
+    right: 50%;
+    transform: translate( 50%, -15%);
+    border-radius: 50%;
+    height: 5vw;
+    width: 5vw;
+    font-size: 1.5em;
+}
+
+
+/**play btn css**/
+
+.video-play-button {
+    position: relative;
+    z-index: 10;
+    left: 52.5%;
+    transform: translateX(-50%) translateY(-230%);
+    box-sizing: content-box;
+    display: block;
+    width: 32px;
+    height: 44px;
+    /* background: #fa183d; */
+    border-radius: 50%;
+    padding: 18px 20px 18px 28px;
+}
+
+.video-play-button:before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 80px;
+    height: 80px;
+    background: #ba1f24;
+    border-radius: 50%;
+    animation: pulse-border 1500ms ease-out infinite;
+}
+
+.video-play-button:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 80px;
+    height: 80px;
+    background: #fa183d;
+    border-radius: 50%;
+    transition: all 200ms;
+}
+
+.video-play-button:hover:after {
+    background-color: darken(#fa183d, 10%);
+}
+
+.video-play-button img {
+    position: relative;
+    z-index: 3;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
+
+.video-play-button span {
+    display: block;
+    position: relative;
+    z-index: 3;
+    width: 0;
+    height: 0;
+    border-left: 32px solid #fff;
+    border-top: 22px solid transparent;
+    border-bottom: 22px solid transparent;
+}
+
+@keyframes pulse-border {
+    0% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+        opacity: 0;
+    }
 }

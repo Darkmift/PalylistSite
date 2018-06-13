@@ -1,19 +1,14 @@
 class Requester {
-    constructor(type, url) {
-        this.type = type;
+    constructor(data, url) {
         this.url = url;
+        this.data = data;
     }
 
-    get() {
-        var result = "";
-        $.ajax({
-            url: this.url,
+    get(getUrl) {
+        return $.ajax({
+            url: 'http://www.avisiteapi.tk/playerAPI/api/' + getUrl,
             async: false,
             data: this.data,
-            success: function(data) {
-                result = data;
-            }
         });
-        return result;
     }
 }
