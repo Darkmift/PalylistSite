@@ -188,6 +188,9 @@ section {
     border-radius: 10px;
     padding: 5px;
     border-radius: 50%;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .playlist {
@@ -198,6 +201,7 @@ section {
 .playlist h4 {
     text-align: center;
     color: rgb(131, 131, 131);
+    text-shadow: 2px 2px 2px rgb(218, 124, 124);
 }
 
 .playlist img {
