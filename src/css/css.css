@@ -206,14 +206,16 @@ section {
 
 .playlist img {
     position: relative;
-    left: 50%;
-    transform: translate( -50%);
+    height: 30vh;
+    width: 30vh;
+    left: 10%;
     border-radius: 50%;
+    animation-name: out;
+    animation-duration: 4000ms;
+    animation-direction: alternate;
 }
 
 .playlist img:hover {
-    left: 10%;
-    /* transform: translate( -50%); */
     -webkit-animation-name: spin;
     -webkit-animation-duration: 4000ms;
     -webkit-animation-iteration-count: infinite;
@@ -265,6 +267,42 @@ section {
     }
     to {
         transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes out {
+    0% {
+        -webkit-transform: rotate(360deg);
+    }
+    100% {
+        -webkit-transform: rotate(0deg);
+    }
+}
+
+@-moz-keyframes out {
+    0% {
+        -webkit-transform: rotate(360deg);
+    }
+    100% {
+        -webkit-transform: rotate(0deg);
+    }
+}
+
+@-ms-keyframes out {
+    0% {
+        -webkit-transform: rotate(360deg);
+    }
+    100% {
+        -webkit-transform: rotate(0deg);
+    }
+}
+
+@keyframes out {
+    0% {
+        -webkit-transform: rotate(360deg);
+    }
+    100% {
+        -webkit-transform: rotate(0deg);
     }
 }
 
