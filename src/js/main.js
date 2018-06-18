@@ -12,18 +12,6 @@ request.get('playlist')
             var playlistDiv = new Playlist(playlist);
             playlistDiv.build();
         });
-        response.data.forEach(playlist => {
-            var playlistDiv = new Playlist(playlist);
-            playlistDiv.build();
-        });
-        response.data.forEach(playlist => {
-            var playlistDiv = new Playlist(playlist);
-            playlistDiv.build();
-        });
-        response.data.forEach(playlist => {
-            var playlistDiv = new Playlist(playlist);
-            playlistDiv.build();
-        });
     })
     .fail(function(xhr) {
         console.log('error', xhr);
@@ -39,7 +27,10 @@ request.get('playlist')
         );
     });
 
-$('*.playlist-name').arctext({
-    radius: 170,
-    dir: 1
-});
+for (let index = 0; index < document.getElementsByClassName('playlist-name').length; index++) {
+    new CircleType(document.getElementsByClassName('playlist-name')[index]).radius(190);
+}
+// window.addEventListener('resize', function() {
+//     $('*.playlist-name').radius($('*.playlist-name').element.offsetWidth / 2);
+// });
+// $('*.playlist-name').fitText()

@@ -4,7 +4,8 @@
   "description": "",
   "main": "gulpfile.js",
   "dependencies": {
-    "browsersync": "^0.0.1-security"
+    "browsersync": "^0.0.1-security",
+    "circletype": "^2.3.0"
   },
   "devDependencies": {
     "@types/jquery": "^3.3.2",

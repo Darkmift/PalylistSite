@@ -186,33 +186,42 @@ section {
     margin: 30px;
     background-color: rgb(10, 7, 3);
     border-radius: 10px;
-    padding: 5px;
+    /* padding: 5px; */
     border-radius: 50%;
+    border: 5px solid silver;
     -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .playlist {
+    position: relative;
     height: 39vh;
     width: 39vh;
+    z-index: 0;
 }
 
 .playlist h4 {
+    position: absolute;
+    left: 50%;
+    top: -12.5%;
     text-align: center;
     color: rgb(131, 131, 131);
     text-shadow: 2px 2px 2px rgb(218, 124, 124);
+    z-index: 1;
 }
 
 .playlist img {
-    position: relative;
+    position: absolute;
     height: 30vh;
     width: 30vh;
-    left: 10%;
+    left: 10.5%;
+    top: 10.5%;
     border-radius: 50%;
     animation-name: out;
     animation-duration: 4000ms;
     animation-direction: alternate;
+    z-index: 2;
 }
 
 .playlist img:hover {
@@ -307,7 +316,7 @@ section {
 }
 
 .playlist .playlist-play-btn {
-    position: relative;
+    position: absolute;
     right: 50%;
     transform: translate( 50%, -15%);
     border-radius: 50%;
@@ -320,7 +329,8 @@ section {
 /**play btn css**/
 
 .video-play-button {
-    position: relative;
+    position: absolute;
+    top: 100%;
     z-index: 10;
     left: 52.5%;
     transform: translateX(-50%) translateY(-230%);
