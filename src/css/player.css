@@ -149,24 +149,26 @@
 
 .mejs-controls .mejs-time-rail .mejs-time-float {
     position: absolute;
-    background: #000;
+    background: #6A5D4F;
     width: 46px;
     height: 20px;
+    border: 1px solid black !important;
     border: none;
     top: -25px;
     margin-left: -18px;
     text-align: center;
-    color: #fff;
     border-radius: 3px;
 }
 
 .mejs-controls .mejs-time-rail .mejs-time-float-current {
     margin: 0;
-    margin-top: 4px;
+    margin: 4px;
     width: 50%;
     display: block;
     text-align: center;
     left: 0;
+    color: black !important;
+    font-size: 15px !important;
 }
 
 .mejs-container .mejs-controls div {
@@ -217,8 +219,14 @@
     pointer-events: none;
 }
 
+.mejs-container * {
+    font-size: 20px !important;
+    color: #292424;
+}
+
 .mejs-controls .mejs-time-rail .mejs-time-total {
     background: rgb(78, 69, 58);
+    margin: 0;
 }
 
 .mejs-controls .mejs-time-rail .mejs-time-loaded {

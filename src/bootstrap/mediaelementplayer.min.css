@@ -267,6 +267,7 @@
 
 .mejs-controls .mejs-time-rail .mejs-time-total {
     margin: 5px;
+    font-size: 5px !important;
     background: #333;
     background: rgba(50, 50, 50, .8);
     background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(30, 30, 30, .8)), to(rgba(60, 60, 60, .8)));
