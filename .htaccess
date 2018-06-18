@@ -5,5 +5,5 @@
 # RewriteRule .*\.(php|html)$ /index.htm [L,R=302]
 
 Options -Indexes
-RewriteEngine on
-RewriteRule !.(js|gif|jpg|png|css|eot|svg|ttf|woff|woff2|map)$ index.htm
+# RewriteEngine on
+# RewriteRule !.(js|gif|jpg|png|css|eot|svg|ttf|woff|woff2|map)$ index.htm

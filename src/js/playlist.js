@@ -25,17 +25,11 @@ class Playlist {
         }).appendTo(container)
         $('<button>', {
             class: "video-play-button",
-        }).click(function() {
-            self.registerPlaying();
-        }).append($('<span>')).appendTo(container)
-        this.container.appendTo($('main'))
-    }
-
-    registerPlaying() {
-        // console.log(this.id);
-        this.container.find('.video-play-button').click(function(event) {
-            event.preventDefault();
+        }).click(() => {
+            cl('clicked on: ' + self.id);
             var player = new Player(this.id, this.name, this.image);
-        }.bind(this));
+        }).append($('<span>')).appendTo(container)
+        this.container.appendTo($('main'));
+
     }
 }
