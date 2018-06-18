@@ -15,17 +15,13 @@ class Playlist {
         });
         var container = this.container;
         $('<h4>', {
-            text: this.name,
+            text: this.name.substr(0, 50) + '...',
             class: "playlist-name"
         }).appendTo(container)
         $('<img>', {
-                src: this.image,
-                class: "playlist-image",
-            }).appendTo(container)
-            // $('<button>', {
-            //     class: "playlist-play-btn btn btn-dark",
-            //     text: "▷",
-            // }).appendTo(container)
+            src: this.image,
+            class: "playlist-image",
+        }).appendTo(container)
         $('<button>', {
             class: "video-play-button",
         }).append($('<span>')).appendTo(container)
@@ -34,7 +30,7 @@ class Playlist {
     }
 
     registerPlaying() {
-        this.container.find('.playlist-play-btn').click(function(event) {
+        this.container.find('.video-play-button').click(function(event) {
             event.preventDefault();
             var player = new Player(this.id, this.name, this.image);
         }.bind(this));
