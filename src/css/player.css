@@ -1,3 +1,8 @@
+* {
+    font-family: 'Eater', cursive;
+    color: #000;
+}
+
 .player {
     margin-top: 20px;
     display: flex;
@@ -69,21 +74,29 @@
     min-height: 50px;
 } */
 
+.mejs-inner {
+    border-radius: 5px !important;
+}
+
 .mejs-container {
-    background: #000;
+    background: rgb(98, 65, 65);
     font-family: Helvetica, Arial;
     text-align: left;
     vertical-align: top;
     text-indent: 0;
-    width: 100% !important;
-    height: 50px !important;
-    border-radius: 5px;
+    width: 75% !important;
+    height: 40px !important;
+    border-radius: 5px !important;
+    margin: 10px 10px 10px 0;
+    border: 3px solid black;
 }
 
 .mejs-container .mejs-controls {
     height: 100%;
     background: transparent;
     display: flex;
+    font-family: 'Eater', cursive;
+    border-radius: 5px;
 }
 
 .mejs-controls .mejs-time-rail span,
@@ -176,7 +189,8 @@
 .mejs-controls .mejs-play:after {
     position: absolute;
     content: "";
-    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/163884/play.svg) no-repeat;
+    /* background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/163884/play.svg) no-repeat; */
+    background: url(../images/play1.svg) no-repeat;
     width: 17px;
     height: 22px;
     top: 0;
@@ -191,7 +205,7 @@
 .mejs-controls .mejs-pause:after {
     position: absolute;
     content: "";
-    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/163884/pause.svg) no-repeat;
+    background: url(../images/pause1.svg) no-repeat;
     width: 13px;
     height: 22px;
     top: 0;
@@ -204,20 +218,20 @@
 }
 
 .mejs-controls .mejs-time-rail .mejs-time-total {
-    background: #292929;
+    background: rgb(78, 69, 58);
 }
 
 .mejs-controls .mejs-time-rail .mejs-time-loaded {
     background: #3c3838;
-    background-image: -webkit-gradient( linear, 0 0, 100% 100%, color-stop(0.25, rgba(255, 255, 255, 0.2)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.2)), color-stop(0.75, rgba(255, 255, 255, 0.2)), color-stop(0.75, transparent), to(transparent));
-    background-image: -moz-linear-gradient( -45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+    background-image: -webkit-gradient( linear, 0 0, 100% 100%, color-stop(0.25, rgba(158, 78, 78, 0.2)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(158, 78, 78, 0.2)), color-stop(0.75, rgba(158, 78, 78, 0.2)), color-stop(0.75, transparent), to(transparent));
+    background-image: -moz-linear-gradient( -45deg, rgba(158, 78, 78, 0.2) 25%, transparent 25%, transparent 50%, rgba(158, 78, 78, 0.2) 50%, rgba(158, 78, 78, 0.2) 75%, transparent 75%, transparent);
     background-size: 50px 50px;
     animation: move 3s linear infinite;
     opacity: 0.1;
 }
 
 .mejs-controls .mejs-time-rail .mejs-time-current {
-    background: linear-gradient(to right, #03a9f4, #ff00ff);
+    background: linear-gradient(to right, #523105, #6A5D4F);
 }
 
 .mejs-controls .mejs-button button:focus {
