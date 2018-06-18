@@ -30,3 +30,7 @@ request.get('playlist')
 for (let index = 0; index < document.getElementsByClassName('playlist-name').length; index++) {
     new CircleType(document.getElementsByClassName('playlist-name')[index]).radius(190);
 }
+
+$('audio').mediaelementplayer({
+    features: ['playpause', 'progress', 'current', 'tracks', 'fullscreen']
+});

@@ -10,6 +10,7 @@ class Playlist {
     }
 
     build() {
+        var self = this;
         this.container = $('<section>', {
             class: "playlist",
         });
@@ -24,12 +25,14 @@ class Playlist {
         }).appendTo(container)
         $('<button>', {
             class: "video-play-button",
+        }).click(function() {
+            self.registerPlaying();
         }).append($('<span>')).appendTo(container)
-
         this.container.appendTo($('main'))
     }
 
     registerPlaying() {
+        // console.log(this.id);
         this.container.find('.video-play-button').click(function(event) {
             event.preventDefault();
             var player = new Player(this.id, this.name, this.image);
