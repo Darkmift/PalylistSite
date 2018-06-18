@@ -22,6 +22,7 @@
     margin-right: 50px;
     border-radius: 25px;
     font-family: 'Eater', cursive;
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .left-list .playlist-image {
