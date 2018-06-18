@@ -27,7 +27,7 @@ class Playlist {
             class: "video-play-button",
         }).click(() => {
             cl('clicked on: ' + self.id);
-            var player = new Player(this.id, this.name, this.image);
+            new Player(this.id, this.name, this.image);
         }).append($('<span>')).appendTo(container)
         this.container.appendTo($('main'));
 
