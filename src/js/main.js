@@ -30,7 +30,3 @@ request.get('playlist')
 for (let index = 0; index < document.getElementsByClassName('playlist-name').length; index++) {
     new CircleType(document.getElementsByClassName('playlist-name')[index]).radius(190);
 }
-// window.addEventListener('resize', function() {
-//     $('*.playlist-name').radius($('*.playlist-name').element.offsetWidth / 2);
-// });
-// $('*.playlist-name').fitText()
