@@ -17,7 +17,7 @@ class Player {
     build() {
         $('.player').remove();
         this.container = $('<div>', {
-            class: "player"
+            class: "player",
         });
         var leftPlayerImage = $('<div>', {
             class: "left-list"
@@ -48,21 +48,19 @@ class Player {
         var audio = $('<audio>', {
             class: 'audio',
             text: "Your browser does not support the audio element.",
-            controls: true,
+            // controls: true,
             autoplay: true,
             'data-song_id': 0,
-        }).on('ended', this.playNext.bind(this));
-        audio.append($('<source>', {
             type: "audio/mpeg",
             src: this.songs[0].url,
-        }));
-
-        // audiojs.events.ready(function() {
-        //     var as = audiojs.createAll();
-        // });
+        });
+        // audio.append($('<source>', {
+        //     type: "audio/mpeg",
+        //     src: this.songs[0].url,
+        // }));
+        audio.on('ended', this.playNext.bind(this));
         audio.appendTo(rightPlayerContent);
-        //audio.appendTo(rightPlayerContent);
-
+        this.audio = audio;
         $('<h6>', {
             text: "NOW PLAYING: " + this.songs[0].name.replace(/\.[0-9a-z]+$/i, '').replace(/_/g, " ").replace(/-faf|-int/gi, ""),
             class: "font-weight-bold playing-now"
@@ -78,52 +76,67 @@ class Player {
     playNext(e) {
         var index = ++e.target.dataset.song_id;
         if (index >= this.songs.length) {
-            return false;
+            // return false;
+            e.target.src = this.songs[0].url;
+            index = 0;
+        } else {
+            e.target.src = this.songs[index].url;
         }
 
-        e.target.src = this.songs[index].url;
-        e.target.play();
+        var audio = document.getElementsByTagName('audio')[0];
+        var playPromise = audio.play();
+        if (playPromise !== undefined) {
+            playPromise.then(_ => {
+                    audio.play()
+                })
+                .catch(error => {
+                    audio.play()
+                });
+        }
+        //
         $('.playing-now').text("NOW PLAYING: " + this.songs[index].name.replace(/\.[0-9a-z]+$/i, '').replace(/_/g, " ").replace(/-faf|-int/gi, ""));
+        $('*.song-playing-now').removeClass('song-playing-now');
+        $('.song-name').each(function(index, element) {
+            if ("NOW PLAYING: " + this.textContent === $('.playing-now').text()) {
+                $(this).addClass('song-playing-now');
+            }
+        });
     }
 
     songsList(e) {
-        var songsList = $('<nav>');
-        $.each(this.songs, function(index, value) {
-            var songNumber = index + 1;
-            var songName = value.name.replace(/\.[0-9a-z]+$/i, '').replace(/_/g, " ").replace(/-faf|-int/gi, "");
-            var song = $('<div>', {
-                class: "song",
-                'data-song_index': index,
-            }).appendTo(songsList);
+        var songsList = $('<nav>').attr('id', this.playlistId);
+        $.when(
+            $.each(this.songs, function(index, value) {
+                var songNumber = index + 1;
+                var songName = value.name.replace(/\.[0-9a-z]+$/i, '').replace(/_/g, " ").replace(/-faf|-int/gi, "");
+                var song = $('<div>', {
+                    class: "song",
+                    'data-song_index': index,
+                }).appendTo(songsList);
 
-            $('<span>', {
-                text: songNumber + ". "
-            }).appendTo(song);
-            $('<span>', {
-                text: songName
-            }).appendTo(song);
+                $('<span>', {
+                    text: songNumber + ". "
+                }).appendTo(song);
+                $('<span>', {
+                    text: songName,
+                    class: 'song-name'
+                }).appendTo(song);
 
-            song.click(function(e) {
-                console.log(e);
-                $('audio').attr({
-                    src: value.url,
-                    'data-song_id': index
+
+                song.click(function(e) {
+                    $('*.song-playing-now').removeClass('song-playing-now');
+                    $(e.target).closest('.song-name').addClass('song-playing-now');
+                    $('audio').attr({
+                        src: value.url,
+                        'data-song_id': index
+                    });
+                    $('.playing-now').text("NOW PLAYING: " + songName);
                 });
-                $('.playing-now').text("NOW PLAYING: " + songName);
-                // $('div').data('song_index', index).css("font-weight", "bold")
-            });
+            })
+        ).then(() => {
+            $('.song-name').first().addClass('song-playing-now');
         });
         return songsList;
     }
 
-    //not working yet (bold & sign ▶)
-    playSign(index) {
-        // if ($('audio').attr('src')) {
-        $("['song_index'=index]").css("font-weight", "bold")
-        $('<span>', {
-            class: "play-sign",
-            text: "▶",
-        }).prependTo($("['song_index'=index]"));
-        // }
-    }
 }

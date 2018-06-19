@@ -156,3 +156,14 @@ section {
         -webkit-transform: rotate(0deg);
     }
 }
+
+
+/**triggered by active song**/
+
+.song-playing-now::before {
+    content: "▶ ";
+}
+
+.song-playing-now {
+    font-weight: 900;
+}

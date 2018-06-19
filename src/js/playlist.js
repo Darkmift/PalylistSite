@@ -30,6 +30,5 @@ class Playlist {
             new Player(this.id, this.name, this.image);
         }).append($('<span>')).appendTo(container)
         this.container.appendTo($('main'));
-
     }
 }
