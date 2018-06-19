@@ -8,6 +8,7 @@
             watch: [
                 'src/js/**/*.js',
                 'src/css/**/*.css',
+                'src/bootstrap/**/*.*',
                 '*.htm',
             ]
         }

@@ -26,10 +26,19 @@ class Player {
             class: "right-list"
         }).appendTo(this.container);
 
+        $('<button>', {
+            class: "playlist-close",
+            click: () => {
+                $('.player').remove();
+            }
+        }).append($('<i>', {
+            class: "icon-remove-sign"
+        })).appendTo(leftPlayerImage);
+
         $('<img>', {
             class: "playlist-image",
             src: this.playlistImg
-        }).appendTo(leftPlayerImage)
+        }).appendTo(leftPlayerImage);
 
         $('<h5>', {
             text: "Playlist Name: " + this.playlistName,
@@ -55,12 +64,11 @@ class Player {
         //audio.appendTo(rightPlayerContent);
 
         $('<h6>', {
-            text: "NOW PLAYING: " + this.songs[0].name,
+            text: "NOW PLAYING: " + this.songs[0].name.replace(/\.[0-9a-z]+$/i, ''),
             class: "font-weight-bold playing-now"
         }).appendTo(rightPlayerContent);
 
         rightPlayerContent.append(this.songsList.bind(this))
-
         $('main').prepend(this.container),
             audio.mediaelementplayer({
                 features: ['playpause', 'progress', 'current', 'tracks', 'fullscreen']
@@ -75,13 +83,14 @@ class Player {
 
         e.target.src = this.songs[index].url;
         e.target.play();
-        $('.playing-now').text("NOW PLAYING: " + this.songs[index].name);
+        $('.playing-now').text("NOW PLAYING: " + this.songs[index].name.replace(/\.[0-9a-z]+$/i, ''));
     }
 
     songsList(e) {
         var songsList = $('<nav>');
         $.each(this.songs, function(index, value) {
             var songNumber = index + 1;
+            var songName = value.name.replace(/\.[0-9a-z]+$/i, '');
             var song = $('<div>', {
                 class: "song",
                 'data-song_index': index,
@@ -91,7 +100,7 @@ class Player {
                 text: songNumber + ". "
             }).appendTo(song);
             $('<span>', {
-                text: value.name
+                text: songName
             }).appendTo(song);
 
             song.click(function(e) {
@@ -100,7 +109,7 @@ class Player {
                     src: value.url,
                     'data-song_id': index
                 });
-                $('.playing-now').text("NOW PLAYING: " + value.name);
+                $('.playing-now').text("NOW PLAYING: " + songName);
                 // $('div').data('song_index', index).css("font-weight", "bold")
             });
         });

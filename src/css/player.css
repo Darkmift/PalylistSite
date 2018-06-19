@@ -5,6 +5,7 @@
 
 .player {
     margin-top: 20px;
+    position: relative;
     display: flex;
     display: -webkit-box;
     display: -moz-box;
@@ -25,6 +26,39 @@
     box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
+
+/**/
+
+.playlist-close {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    padding: 5px;
+    margin: 5px;
+    background: rgb(148, 133, 116);
+    height: 35px;
+    float: right;
+    text-align: center;
+    font-size: 15px;
+    line-height: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    color: black;
+    border-radius: 22px;
+    font-family: 'Eater', cursive;
+    border: 5px solid silver;
+    font-size: 9000;
+}
+
+.playlist-close:hover {
+    background: #f1f1f1;
+    color: white;
+    border: black solid 4px;
+}
+
+
+/**/
+
 .left-list .playlist-image {
     border-radius: 50%;
     height: 30vh;
@@ -35,6 +69,27 @@
 .right-list nav {
     height: 15vh;
     overflow: scroll;
+    border: 3px solid black;
+    padding: 5px;
+    border-radius: 5px;
+    background: rgb(148, 133, 116);
+}
+
+.right-list nav .song {
+    padding: 0;
+    margin: -10px 0;
+    height: 35px !important;
+}
+
+.right-list nav span:last-child:hover {
+    background: rgb(97, 87, 75);
+    margin: 0;
+    color: white !important;
+}
+
+.right-list nav .song span:first-child {
+    font-size: 25px;
+    line-height: 30px;
 }
 
 
@@ -47,7 +102,7 @@
 .cont h3 {
     font-family: "Lato";
     font-size: 50px;
-    margin: 0 0 10px 0;
+    margin: 0 0 -10px 0;
     color: #ccc;
 }
 
@@ -226,21 +281,21 @@
 }
 
 .mejs-controls .mejs-time-rail .mejs-time-total {
-    background: rgb(78, 69, 58);
+    background: rgb(148, 133, 116);
     margin: 0;
 }
 
 .mejs-controls .mejs-time-rail .mejs-time-loaded {
-    background: #3c3838;
-    background-image: -webkit-gradient( linear, 0 0, 100% 100%, color-stop(0.25, rgba(158, 78, 78, 0.2)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(158, 78, 78, 0.2)), color-stop(0.75, rgba(158, 78, 78, 0.2)), color-stop(0.75, transparent), to(transparent));
-    background-image: -moz-linear-gradient( -45deg, rgba(158, 78, 78, 0.2) 25%, transparent 25%, transparent 50%, rgba(158, 78, 78, 0.2) 50%, rgba(158, 78, 78, 0.2) 75%, transparent 75%, transparent);
+    background: #776e6e;
+    background-image: -webkit-gradient( linear, 0 0, 100% 100%, color-stop(0.25, rgba(255, 255, 255, 0.8)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.8)), color-stop(0.75, rgba(255, 255, 255, 0.8)), color-stop(0.75, transparent), to(transparent));
+    background-image: -moz-linear-gradient( -45deg, rgba(255, 255, 255, 0.8) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.8) 75%, transparent 75%, transparent);
     background-size: 50px 50px;
     animation: move 3s linear infinite;
     opacity: 0.1;
 }
 
 .mejs-controls .mejs-time-rail .mejs-time-current {
-    background: linear-gradient(to right, #523105, #6A5D4F);
+    background: linear-gradient(to right, rgb(148, 133, 116), #6A5D4F);
 }
 
 .mejs-controls .mejs-button button:focus {
