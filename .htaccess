@@ -7,3 +7,12 @@
 Options -Indexes
 # RewriteEngine on
 # RewriteRule !.(js|gif|jpg|png|css|eot|svg|ttf|woff|woff2|map)$ index.htm
+
+# RewriteEngine on
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^(.*)$ /index.htm?path=$1 [NC,L,QSA]
+
+RewriteEngine on
+
+RewriteRule ^((?!index\.htm).+)$ /index.htm [L]
