@@ -41,7 +41,7 @@ class Player {
         }).appendTo(leftPlayerImage);
 
         $('<h5>', {
-            text: "Playlist Name: " + this.playlistName,
+            text: "Playlist Name: " + this.playlistName.replace(/\.[0-9a-z]+$/i, '').replace(/_/g, " ").replace(/-faf|-int/gi, ""),
             class: "player-name"
         }).appendTo(rightPlayerContent);
 
@@ -64,7 +64,7 @@ class Player {
         //audio.appendTo(rightPlayerContent);
 
         $('<h6>', {
-            text: "NOW PLAYING: " + this.songs[0].name.replace(/\.[0-9a-z]+$/i, ''),
+            text: "NOW PLAYING: " + this.songs[0].name.replace(/\.[0-9a-z]+$/i, '').replace(/_/g, " ").replace(/-faf|-int/gi, ""),
             class: "font-weight-bold playing-now"
         }).appendTo(rightPlayerContent);
 
@@ -83,14 +83,14 @@ class Player {
 
         e.target.src = this.songs[index].url;
         e.target.play();
-        $('.playing-now').text("NOW PLAYING: " + this.songs[index].name.replace(/\.[0-9a-z]+$/i, ''));
+        $('.playing-now').text("NOW PLAYING: " + this.songs[index].name.replace(/\.[0-9a-z]+$/i, '').replace(/_/g, " ").replace(/-faf|-int/gi, ""));
     }
 
     songsList(e) {
         var songsList = $('<nav>');
         $.each(this.songs, function(index, value) {
             var songNumber = index + 1;
-            var songName = value.name.replace(/\.[0-9a-z]+$/i, '');
+            var songName = value.name.replace(/\.[0-9a-z]+$/i, '').replace(/_/g, " ").replace(/-faf|-int/gi, "");
             var song = $('<div>', {
                 class: "song",
                 'data-song_index': index,
